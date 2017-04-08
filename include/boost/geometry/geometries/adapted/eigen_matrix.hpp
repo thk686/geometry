@@ -64,19 +64,19 @@ struct eigen_matrix_tag<true>
 
 // Assign the point-tag, preventing arrays of points getting a point-tag
 template <typename CoordinateType, std::size_t DimensionCount>
-struct tag<Eigen::Matrix<CoordinateType, DimensionCount, 1>>
+struct tag<Eigen::Matrix<CoordinateType, DimensionCount, 1> >
   : detail::eigen_matrix_tag<boost::is_arithmetic<CoordinateType>::value> {};
 
 
 template <typename CoordinateType, std::size_t DimensionCount>
-struct coordinate_type<Eigen::Matrix<CoordinateType, DimensionCount, 1>>
+struct coordinate_type<Eigen::Matrix<CoordinateType, DimensionCount, 1> >
 {
   typedef CoordinateType type;
 };
 
 
 template <typename CoordinateType, std::size_t DimensionCount>
-struct dimension<Eigen::Matrix<CoordinateType, DimensionCount, 1>>: boost::mpl::int_<DimensionCount> {};
+struct dimension<Eigen::Matrix<CoordinateType, DimensionCount, 1> >: boost::mpl::int_<DimensionCount> {};
 
 
 template <typename CoordinateType, std::size_t DimensionCount, std::size_t Dimension>
@@ -105,7 +105,7 @@ struct access<Eigen::Matrix<CoordinateType, DimensionCount, 1>, Dimension>
 #define BOOST_GEOMETRY_REGISTER_EIGEN_MATRIX_CS(CoordinateSystem) \
 namespace boost { namespace geometry { namespace traits {      \
 template <class T, std::size_t N>                              \
-struct coordinate_system<Eigen::Matrix<T, N, 1>>               \
+struct coordinate_system<Eigen::Matrix<T, N, 1> >              \
 {                                                              \
   typedef CoordinateSystem type;                               \
 };                                                             \
